@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/arnav7777/TaskM",
+  "homepage": "https://arnav7777.github.io/TaskM",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
