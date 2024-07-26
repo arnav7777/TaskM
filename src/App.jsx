@@ -29,7 +29,7 @@ const getUserIdFromToken = () => {
 
 const AppContent = () => {
   const location = useLocation();
-  const noNavbarPaths = ['TaskM/login', 'TaskM/register' , 'TaskM/Register' ,'TaskM/Login' ];
+  const noNavbarPaths = ['/TaskM/login', '/TaskM/register' , '/TaskM/Register' ,'/TaskM/Login' ];
   const [userAccess, setUserAccess] = useState(null);
   const [userIdtemp, setUserIdtemp] = useState(null);
   const userId = getUserIdFromToken();
@@ -56,17 +56,17 @@ const AppContent = () => {
     <>
       {!noNavbarPaths.includes(location.pathname) && <Navbar />}
       <Routes>
-        <Route path="TaskM/login" element={<LoginPage />} />
-        <Route path="TaskM/register" element={<RegisterPage />} />
+        <Route path="/TaskM/login" element={<LoginPage />} />
+        <Route path="/TaskM/register" element={<RegisterPage />} />
         <Route
-          path="TaskM/dashboard"
+          path="/TaskM/dashboard"
           element={
             isAuthenticated() ? (
               <Layout>
                 <KanbanBoard />
               </Layout>
             ) : (
-              <Navigate to="TaskM/login" replace />
+              <Navigate to="/TaskM/login" replace />
             )
           }
         />
