@@ -1,0 +1,32 @@
+/* CSS adjustments for larger modal box */
+.modal {
+    /* Center the modal */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Ensure modal is on top */
+  }
+  
+  .overlay {
+    /* Style for overlay to cover the entire screen */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999; /* Overlay below modal but above content */
+  }
+  
+  .modal-content {
+    /* Style for the modal content */
+    max-width: 600px; /* Increased width */
+    width: 90%; /* Adjust width to a percentage of the viewport */
+    margin: auto;
+    padding: 2rem; /* Increased padding */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3); /* Slightly larger shadow */
+  }
+  
