@@ -86,6 +86,7 @@ const KanbanBoard = () => {
     const updatedTask = {
       taskname,
       description,
+      createdAt: new Date().toISOString(),
     };
     try {
       const response = await axios.put(`${backendUrl}/tasks/${id}`, updatedTask);
