@@ -4,11 +4,11 @@ import {jwtDecode} from 'jwt-decode'; // Import jwtDecode
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const avatars = [
-  'src/assets/avatars/a1.jpg',
-  'src/assets/avatars/a2.jpg',
-  'src/assets/avatars/a3.jpg',
-  'src/assets/avatars/a4.jpg',
-  'src/assets/avatars/a5.jpg',
+  '/assets/avatars/a1.jpg',
+  '/assets/avatars/a2.jpg',
+  '/assets/avatars/a3.jpg',
+  '/assets/avatars/a4.jpg',
+  '/assets/avatars/a5.jpg',
 ];
 
 const AvatarSelector = ({ onSelect, onClose }) => {
