@@ -64,7 +64,7 @@ const googleLoginSchema = Joi.object({
 const taskSchema = Joi.object({
     taskname: Joi.string().required(),
     description: Joi.string().required(),
-    createdAt: Joi.date().required(),
+    createdAt: Joi.string().required(),
     status: Joi.string().required()
 });
 
@@ -72,7 +72,7 @@ const updateTaskSchema = Joi.object({
     id: Joi.number().optional(),    
     taskname: Joi.string().optional(),
     description: Joi.string().optional(),
-    createdAt: Joi.date().optional(),
+    createdAt: Joi.string().optional(),
     status: Joi.string().optional()
 });
 
@@ -186,7 +186,6 @@ app.post('/google-login', async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 });
-
 
 // Update Avatar API
 app.post('/update-avatar', (req, res) => {
