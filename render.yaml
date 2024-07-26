@@ -10,10 +10,10 @@ services:
         value: production
   - type: web
     name: TaskM Frontend
-    env: static
+    env: node
     plan: free
     buildCommand: npm install && npm run build
-    publishPath: dist
+    startCommand: serve -s dist
     envVars:
       - key: VITE_BACKEND_URL
         value: https://taskm-backend.onrender.com
