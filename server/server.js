@@ -278,6 +278,7 @@ app.put('/tasks/:id', (req, res) => {
 // Delete Task API
 app.delete('/tasks/:id', (req, res) => {
     const { id } = req.params;
+    console.log('Received request data:', req.body);
 
     const sql = 'DELETE FROM tasks WHERE id = ?';
     connection.query(sql, [id], (err, results) => {
