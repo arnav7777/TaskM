@@ -133,6 +133,7 @@ const KanbanBoard = () => {
     if (!card) return;
 
     const updatedCard = { ...card, status: targetColumn };
+    console.log(updatedCard);
 
     try {
       await axios.put(`${backendUrl}/tasks/${cardId}`, updatedCard);

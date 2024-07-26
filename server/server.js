@@ -65,6 +65,7 @@ const taskSchema = Joi.object({
 });
 
 const updateTaskSchema = Joi.object({
+    id: Joi.string().optional(),    
     taskname: Joi.string().optional(),
     description: Joi.string().optional(),
     createdAt: Joi.date().optional(),
