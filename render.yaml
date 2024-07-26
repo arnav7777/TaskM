@@ -15,4 +15,4 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_BACKEND_URL
-        value: https://taskm-backend.onrender.com/TaskM
+        value: https://taskm-backend.onrender.com
