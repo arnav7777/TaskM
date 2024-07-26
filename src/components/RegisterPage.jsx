@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -31,7 +33,7 @@ const RegisterPage = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/register', formData);
+      const response = await axios.post(`${backendUrl}/register`, formData);
       console.log(response.data);
       navigate('/login', { state: { message: 'Registered successfully' } });
       setFormData({

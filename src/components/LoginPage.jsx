@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { auth, provider, signInWithPopup } from '../firebase';
 import axios from 'axios';
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -33,7 +35,7 @@ const LoginPage = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/login', formData);
+      const response = await axios.post(`${backendUrl}/login`, formData);
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
         navigate('/dashboard', { state: { message: 'Login successful' } });
@@ -55,7 +57,7 @@ const LoginPage = () => {
         const { email } = result.user;
 
         // Send the user details to the backend
-        const response = await axios.post('http://localhost:5000/google-login', { email });
+        const response = await axios.post(`${backendUrl}/google-login`, { email });
         if (response.data.token) {
             // Save the token and navigate
             localStorage.setItem('token', response.data.token);

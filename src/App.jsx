@@ -7,6 +7,7 @@ import RegisterPage from './components/RegisterPage';
 import KanbanBoard from './components/KanbanBoard';
 import Navbar from './components/Navbar';
 import Layout from './components/Layout';
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const isAuthenticated = () => {
   const token = localStorage.getItem('token');
@@ -28,7 +29,7 @@ const getUserIdFromToken = () => {
 
 const AppContent = () => {
   const location = useLocation();
-  const noNavbarPaths = ['/login', '/register' , '/Register' ,'/Login' ];
+  const noNavbarPaths = ['login', 'register' , 'Register' ,'Login' ];
   const [userAccess, setUserAccess] = useState(null);
   const [userIdtemp, setUserIdtemp] = useState(null);
   const userId = getUserIdFromToken();
@@ -36,7 +37,7 @@ const AppContent = () => {
   useEffect(() => {
     const fetchData = async (userId) => {
       try {
-        const response = await axios.get('http://localhost:5000/admindetails', {
+        const response = await axios.get(`${backendUrl}/admindetails`, {
           params: { username: userId },
         });
         setUserIdtemp(response.data[0].id);
@@ -55,23 +56,23 @@ const AppContent = () => {
     <>
       {!noNavbarPaths.includes(location.pathname) && <Navbar />}
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
         <Route
-          path="/dashboard"
+          path="dashboard"
           element={
             isAuthenticated() ? (
               <Layout>
                 <KanbanBoard />
               </Layout>
             ) : (
-              <Navigate to="/login" replace />
+              <Navigate to="login" replace />
             )
           }
         />
         <Route
           path="*"
-          element={<Navigate to={isAuthenticated() ? "/dashboard" : "/login"} replace />}
+          element={<Navigate to={isAuthenticated() ? "dashboard" : "login"} replace />}
         />
       </Routes>
     </>

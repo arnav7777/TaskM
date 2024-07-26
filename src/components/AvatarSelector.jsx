@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import {jwtDecode} from 'jwt-decode'; // Import jwtDecode
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const avatars = [
   'src/assets/avatars/a1.jpg',
@@ -20,7 +21,7 @@ const AvatarSelector = ({ onSelect, onClose }) => {
       try {
         const token = localStorage.getItem("token");
         const { email } = jwtDecode(token); // Assuming email is used to identify the user
-        await axios.post("http://localhost:5000/update-avatar", {
+        await axios.post(`${backendUrl}/update-avatar`, {
           email,
           avatar: selectedAvatar,
         });

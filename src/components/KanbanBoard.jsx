@@ -3,6 +3,7 @@ import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import axios from 'axios';
 import TaskModal from './TaskModal';
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const ItemType = {
   CARD: 'card',
@@ -24,7 +25,7 @@ const KanbanBoard = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/tasks');
+        const response = await axios.get(`${backendUrl}/tasks`);
         const tasksData = response.data;
 
         setTasks({
@@ -68,7 +69,7 @@ const KanbanBoard = () => {
       status: 'todo',
     };
     try {
-      const response = await axios.post('http://localhost:5000/tasks', newTask);
+      const response = await axios.post(`${backendUrl}/tasks`, newTask);
       const createdTask = response.data;
 
       setTasks((prevTasks) => ({
@@ -87,7 +88,7 @@ const KanbanBoard = () => {
       description,
     };
     try {
-      const response = await axios.put(`http://localhost:5000/tasks/${id}`, updatedTask);
+      const response = await axios.put(`${backendUrl}/tasks/${id}`, updatedTask);
       const editedTask = response.data;
 
       setTasks((prevTasks) => {
@@ -107,7 +108,7 @@ const KanbanBoard = () => {
 
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/tasks/${id}`);
+      await axios.delete(`${backendUrl}/tasks/${id}`);
 
       setTasks((prevTasks) => {
         const newTasks = { ...prevTasks };
@@ -134,7 +135,7 @@ const KanbanBoard = () => {
     const updatedCard = { ...card, status: targetColumn };
 
     try {
-      await axios.put(`http://localhost:5000/tasks/${cardId}`, updatedCard);
+      await axios.put(`${backendUrl}/tasks/${cardId}`, updatedCard);
 
       const newSourceCards = sourceCards.filter((c) => c.id !== cardId);
       const newTargetCards = [...targetCards, updatedCard];

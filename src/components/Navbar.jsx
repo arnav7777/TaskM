@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import AvatarSelector from "./AvatarSelector"; // Import the AvatarSelector component
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 
 const Navbar = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -22,7 +24,7 @@ const Navbar = () => {
         // Fetch the user's avatar from the server whenever the userId changes
         const fetchAvatar = async () => {
           try {
-            const response = await axios.get("http://localhost:5000/admindetails", {
+            const response = await axios.get(`${backendUrl}/admindetails`, {
               params: { username: email },
             });
             const avatar = response.data[0]?.avatar || '/default-avatar.png';
