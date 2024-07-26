@@ -134,7 +134,7 @@ const LoginPage = () => {
         </button>
         <p className="mt-4 text-center">
           Do not have an account?{' '}
-          <Link to="../TaskM/register" className="text-red-700 hover:underline">
+          <Link to="/register" className="text-red-700 hover:underline">
             Register
           </Link>
         </p>
