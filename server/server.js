@@ -5,11 +5,13 @@ import cors from 'cors';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import Joi from 'joi';
+import path from 'path';
 
 dotenv.config();
 
 const app = express();
 const port = 5000;
+const __dirname = path.resolve();
 
 process.env.TZ = 'Asia/Kolkata';
 
@@ -25,6 +27,8 @@ const connection = mysql.createConnection({
 });
 
 connection.connect();
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 // Validation schemas
 const userSchema = Joi.object({
@@ -318,6 +322,10 @@ app.get('/admindetails', (req, res) => {
         });
     }
 });
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+  });
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
