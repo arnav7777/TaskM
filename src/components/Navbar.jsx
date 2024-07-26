@@ -76,7 +76,7 @@ const Navbar = () => {
             <div className="flex items-center justify-start rtl:justify-end">
               <a href="#" className="flex ms-2 md:me-auto">
                 <img
-                  src="./src/assets/image.png"
+                  src="/assets/image.png"
                   className="h-9 me-3"
                   alt="TaskM Logo"
                 />
