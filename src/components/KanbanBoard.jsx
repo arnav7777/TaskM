@@ -65,7 +65,7 @@ const KanbanBoard = () => {
     const newTask = {
       taskname: text,
       description,
-      createdAt: new Date().toLocaleString("en-GB", { timeZone: "Asia/Kolkata" }),
+      createdAt: new Date().toISOString(),
       status: 'todo',
     };
     try {
