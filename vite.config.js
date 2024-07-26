@@ -6,9 +6,6 @@ export default defineConfig({
   base: "/TaskM",
   plugins: [react()],
   build: {
-    outDir: 'dist',
-    rollupOptions: {
-      input: 'src/main.jsx', // Adjust if necessary
-    },
+    outDir: 'dist'
   }
 })
