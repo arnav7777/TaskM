@@ -7,10 +7,14 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'dist'
+<<<<<<< HEAD
   },
   define: {
     'process.env': {
       VITE_BACKEND_URL: JSON.stringify(process.env.VITE_BACKEND_URL),
     },
   },
+=======
+  }
+>>>>>>> 9c4d15ce76ac0a79db52aff9fcebf482731eec02
 })
