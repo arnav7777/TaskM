@@ -31,12 +31,12 @@ To get a local copy of the project up and running, follow these steps:
 
 ### Installation
 1. **Clone the repository:**
-   git clone https://github.com/arnav7777/TaskM.git
-   npm install
-   cd server
-   npm install
-   Start the backend server: node server.js
-   In a new terminal, start the frontend server: npm run dev
+   - git clone https://github.com/arnav7777/TaskM.git
+   - npm install
+   - cd server
+   - npm install
+   - Start the backend server: node server.js
+   - In a new terminal, start the frontend server: npm run dev
 
 ### Usage
 **Home Page:** View all tasks and their status with drag-and-drop functionality.
@@ -46,10 +46,10 @@ To get a local copy of the project up and running, follow these steps:
 **Avatar Selection:** Choose your preferred avatar in the profile settings.
 
 ### Acknowledgments
-React and Vite for building the frontend.
-Node.js and Express for the backend.
-MySQL for database management.
-Firebase for authentication.
-bcrypt.js for secure password hashing.
+- React and Vite for building the frontend.
+- Node.js and Express for the backend.
+- MySQL for database management.
+- Firebase for authentication.
+- bcrypt.js for secure password hashing.
 
 ### TaskM by arnav pratap singh
