@@ -4,6 +4,7 @@ import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import AvatarSelector from "./AvatarSelector"; // Import the AvatarSelector component
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
+console.log(backendUrl);
 
 
 const Navbar = () => {
